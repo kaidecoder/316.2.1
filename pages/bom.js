@@ -11,6 +11,7 @@ let computerGuess;
  * @param  {}
  * @return {}
  */
+
 let endOfFile = false;
 function guessANumber() {
   computerGuess = Math.floor(Math.random() * 100 + 1);
@@ -19,19 +20,20 @@ function guessANumber() {
     yourNumber = Number(prompt("Please enter a number:  "));
     if (yourNumber > computerGuess && !isNaN(yourNumber)) {
       console.log(yourNumber, "too large");
-      text = `\n${yourNumber} too large\n`;
+      text = `${yourNumber} too large `;
       p.innerText += text;
     } else if (yourNumber < computerGuess && !isNaN(yourNumber)) {
       console.log(yourNumber, "too small");
-      text = `\n${yourNumber} too small\n`;
+      text = `${yourNumber} too small `;
       p.innerText += text;
     } else if (yourNumber === computerGuess && !isNaN(yourNumber)) {
       alertBox.classList.add("success");
-      text = `\n${yourNumber} SUCCESS`;
+      text = `${yourNumber} SUCCESS `;
       p.innerText += text;
       console.log(yourNumber, "success");
-      let play = prompt("Would you like to play again?  ");
+      let play = prompt("Type 'yes' to play again and anything else to quit: ");
       if (play !== "yes") {
+        console.clear()
         break;
       } else {
         console.clear();
